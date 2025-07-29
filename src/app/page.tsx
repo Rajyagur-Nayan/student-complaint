@@ -1,103 +1,161 @@
-import Image from "next/image";
+import { BookOpen, MessageSquare, Shield, Users } from "lucide-react";
+import Link from "next/link";
+import React from "react";
 
-export default function Home() {
+export default function page() {
+  interface CardItem {
+    id: number;
+    title: string;
+    description: string;
+    icon: React.ElementType;
+  }
+  interface sectionData {
+    id: number;
+    title: string;
+    description: string;
+  }
+
+  const cardData: CardItem[] = [
+    {
+      id: 1,
+      title: "Academic Issues",
+      description:
+        "Report problems with courses, grading, or academic services",
+      icon: BookOpen,
+    },
+    {
+      id: 2,
+      title: "Campus Safety",
+      description:
+        "Report safety concerns, security issues, or emergency situations",
+      icon: Shield,
+    },
+    {
+      id: 3,
+      title: "Student Services",
+      description:
+        "Issues with dining, housing, transportation, or other services",
+      icon: Users,
+    },
+    {
+      id: 4,
+      title: "General Feedback",
+      description:
+        "Share suggestions for improvements or general campus feedback",
+      icon: MessageSquare,
+    },
+  ];
+
+  const sectionData: sectionData[] = [
+    {
+      id: 1,
+      title: "Submit Your Complaint",
+      description:
+        "Fill out our simple form with details about your issue or suggestion.",
+    },
+    {
+      id: 2,
+      title: "Track Progress",
+      description:
+        "Monitor the status of your complaint through our dashboard.",
+    },
+    {
+      id: 3,
+      title: "See Results",
+      description:
+        "Get updates and see how your feedback helps improve campus life.",
+    },
+  ];
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="bg-blue-100 py-12">
+      {/* Header Text Section */}
+      <div className="max-w-7xl mx-auto px-4">
+        <div className="text-center mt-9 mb-5">
+          <h1 className="text-4xl text-black font-bold">Your Voice Matters</h1>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <div className="text-center mb-4">
+          <p className="text-xl text-gray-600">
+            Help improve our campus by reporting issues, suggesting
+            improvements, and making
+          </p>
+          <p className="text-xl text-gray-600">
+            your college experience better for everyone.
+          </p>
+          <div className="flex justify-center gap-4 mt-6 flex-wrap flex-col md:flex-row ">
+            <Link
+              href="/submitComplaint"
+              className="bg-blue-700 px-6 py-2 text-white rounded-sm hover:bg-blue-600"
+            >
+              Submit Complaint
+            </Link>
+            <Link
+              href="/dashboard"
+              className="bg-gray-100 px-6 py-2 border rounded-sm hover:bg-gray-200"
+            >
+              View Dashboard
+            </Link>
+          </div>
+        </div>
+
+        {/* Complaint Type Cards */}
+        <div className="py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {cardData.map((data: CardItem, index: number) => {
+              const Icon = data.icon;
+              return (
+                <div
+                  key={index}
+                  className="rounded-xl overflow-hidden shadow-md transition-transform transform hover:-translate-y-1 hover:shadow-xl bg-white border p-6"
+                >
+                  <div className="flex justify-center">
+                    <Icon
+                      className={` h-10 w-10  mb-4 ${
+                        index === 0
+                          ? "text-blue-600"
+                          : index === 1
+                          ? "text-green-600"
+                          : index === 2
+                          ? "text-purple-600"
+                          : "text-rose-500"
+                      }`}
+                    />
+                  </div>
+                  <h2 className="text-lg font-semibold text-center mb-4">
+                    {data.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm text-center">
+                    {data.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        {/* How It Works Section */}
+        <div className="bg-white px-8 py-16 rounded-2xl shadow-md">
+          <h1 className="text-3xl font-bold text-center mb-14">How It Works</h1>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center max-w-6xl mx-auto">
+            {sectionData.map((data, index) => (
+              <div key={index} className="flex flex-col items-center">
+                <div
+                  className={`w-20 h-20 rounded-full flex items-center justify-center text-2xl font-bold mb-6 ${
+                    index === 0
+                      ? "bg-blue-100 text-blue-600"
+                      : index === 1
+                      ? "bg-green-100 text-green-600"
+                      : "bg-purple-100 text-purple-600"
+                  }`}
+                >
+                  {data.id}
+                </div>
+                <h2 className="text-lg font-semibold mb-2">{data.title}</h2>
+                <p className="text-gray-600 text-sm">{data.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
